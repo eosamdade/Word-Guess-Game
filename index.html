@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>SPACE WORDS GAME</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/assets/css/style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/assets/css/reset.css'>
+    <script src='/assets/javascript/game.js'></script>
+</head>
+<body>
+
+    <div class="gameHeading">
+        <h1>SPACE WORD GUESS</h1>
+    </div>
+
+    <div class="backdrop">
+        <div class="wrapper">
+
+            <h2>PRESS ANY KEY TO GET STARTED!</h2>
+
+            
+            <div class="scoreBoard">
+                <div class= "word screen">
+                    <h3>WINS
+                        <span id="numberOfWins"></span>
+                    </h3>
+                        
+                    <div class="currentGameState">
+                        <h3>CURRENT SPACE WORD</h3>
+                        <h3 id="currentWord">_ _ _ _ _ _ _ _ _ _ _</h3>
+                    </div>
+
+                    <h3>NUMBER OF GUESSES REMAINING
+                        <span id="guessesLeft"></span>
+                    </h3>
+
+                    <h3>LETTERS ALREADY GUESSED
+                        <span id="lettersGuessed"></span>
+                    </h3>
+                </div>
+
+                <div class="imageShow">
+                    <!-- <img src="https://images-assets.nasa.gov/image/PIA03654/PIA03654~orig.jpg" alt="nasa_images"> -->
+                </div>
+            </div>
+
+
+
+            <div class="audioFiles">
+                <audio id="audio1" src="/assets/audio/Alien Recording-SoundBible.com-2050487982.mp3" type="audio/mp3"></audio>
+
+                <audio id="audio2" src="/assets/audio/alien-spaceship_daniel_simion.mp3" type="audio/mp3"></audio>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>
