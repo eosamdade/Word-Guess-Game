@@ -1,0 +1,62 @@
+.bigbang {
+    background-image: url(/assets/images/Space-universe-red-planet-strips_2560x1440.jpg);
+    width: 100;
+    background-color: burlywood;
+}
+
+.backdrop {
+   
+    
+
+}
+
+.gameHeading {
+    text-align: center;
+    font-size: 60px;
+    color: white;
+    font-family: 'Righteous', cursive;
+}
+
+.wrapper {
+    font-family: 'Sanchez', serif;
+    color:white;
+    border: 2px solid black;
+    height: 1000px;
+    width: 50%;
+    position: relative;
+    left:25%;
+}
+
+.start {
+    text-align: center;
+    padding:5%;
+    font-size: 26px;
+    width:60%;
+    position: relative;
+    left:15%
+}
+
+.scoreBoard {
+    text-align: center;
+    padding:5%;
+    font-size: 18px;
+    width:40%;
+    position: relative;
+    left:25%;
+    /* background-color: antiquewhite; */
+    height: 700px;
+}
+
+.scoreInfo {
+    /* background-color: blue; */
+    height: 100px;
+    padding: 10%;
+    
+}
+
+.currentGameState {
+    /* background-color: aquamarine; */
+    height: 150px;
+    padding: 10%
+}
+
