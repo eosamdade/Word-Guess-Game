@@ -40,9 +40,9 @@
     text-align: center;
     padding:5%;
     font-size: 18px;
-    width:40%;
+    width:60%;
     position: relative;
-    left:25%;
+    left:15%;
     /* background-color: antiquewhite; */
     height: 700px;
 }
@@ -50,13 +50,18 @@
 .scoreInfo {
     /* background-color: blue; */
     height: 100px;
-    padding: 10%;
+    padding:5%;
     
 }
 
 .currentGameState {
-    /* background-color: aquamarine; */
+    background-color:black;
+    opacity: .8;
     height: 150px;
-    padding: 10%
+    padding: 10%;
+    font-family: 'Righteous', cursive;
+    font-size: 18px;
+    
+
 }
 
