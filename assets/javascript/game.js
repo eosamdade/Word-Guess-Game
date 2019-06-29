@@ -25,8 +25,95 @@ function gameEngine() {
     }
     console.log(blankCorrectSpace);
 
-    document.getElementById("currentSpaceWorld").innerHTML = "  " + blankCorrectSpace.join(" ");
+    document.getElementById("currentSpaceWorld").textContent = "  " + blankCorrectSpace.join(" ");
+}
+    
+var spaceSounds = document.getElementById("audio1");
+var spacemusic = document.getElementById("audio2");
 
+function audio() {
+    if (randomSpaceWord ===spaceWord
+        [0-20]){
+        audio1.pause();
+        audio2.play();
+        document.getElementById("bigbang").src = "assets/images/PIA01384_large.jpg";
+    }
+
+    else if (randomSpaceWord ===spaceWord 
+        [21-40]) {
+        audio1.play();
+        audio2.pause();
+        document.getElementById("bigbang").src = "assets/images/PIA10399_orig.jpg";
+    }
+
+    else if (randomSpaceWord ===spaceWord 
+        [41-60]) {
+        audio1.pause();
+        audio2.play();
+        document.getElementById("bigbang").src = "assets/images/PIA09178_orig.jpg";
+    }
+    else if (randomSpaceWord ===spaceWord 
+        [61-84]) {
+        audio1.play();
+        audio2.pause();
+        document.getElementById("bigbang").src = "assets/images/PIA03654_orig.jpg";
+    }
+    
+};
+
+function reset() {
+    guessesRemaining = 15;
+    wrongGuess = [];
+    blanksAndCorrect = [];
+    Game()
 }
 
+function letterMarching (letter) {
+    var indLetter = false;
+
+    for (var i = 0; i < blankSpace; i++) {
+        if (randomSpaceWord[i]== letter) {
+            indLetter = true;
+        }
+    }
+
+    if (indLetter) {
+        for (var i=0; i < blankSpace; i++) {
+            if (randomSpaceWord[i]== letter) {
+                blankCorrectSpace[i] =letter;
+            }
+        }
+    }
+    else {
+        wrongGuess.push (letter);
+        remainingGuesses --;
+    }
+
+    console.log(blankCorrectSpace);
+}
+
+function blackhole () {
+    if (letterOfSpaceWord.toSting() == blankCorrectSpace.toString()) {
+        wins++
+        audio()
+        reset()
+
+        document.getElementById ("numberOfWins").textContent = " " + wins
+    }
+}
+
+document.getElementById("currentSpaceWorld").textContent + "  " + blankCorrectSpace.join (" ");
 gameEngine(spaceWord);
+document.getElementById("guessesLeft"). textContent = " " + remainingGuesses;
+
+
+gameEngine ()
+
+document.onkeyup = function (event) {
+    var guesses = String.fromCharCode(event.keycode).toLowerCase ();
+    letterMarching(guesses);
+    blackhole();
+    console.log(guesses);
+
+    document.getElementById("lettersGuessed").textContent = "  " + wrongGuess.join(" ");
+}
