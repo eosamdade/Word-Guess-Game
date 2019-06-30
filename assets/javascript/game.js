@@ -1,5 +1,5 @@
 var spaceWord = 
-["Space", "Earth", "Solar System", "Jupiter","Mars", "quarter moon", "Neptune", "moon", "gibbous moon", "Mercury", "Pluto", "half moon", "Saturn", "Venus", "crescent moon", "Uranus", "planet", "axial tilt", "waning", "waxing", "asteroid belt", "asteroid", "black hole", "big bang theory", "astronaut", "comet", "binary star", "astronomer", "astronomy", "elliptical orbit", "density", "constellation", "deep space", "cosmonaut", "cosmos", "dwarf planet", "crater","day", "dwarf star", "dust", "equinox", "inner planets", "eclipse", "ecliptic", "inferior planets", "galaxy", "lunar", "falling star", "meteorite", "meteor", "meteor shower", "meteoroid", "lens", "gravity", "full moon", "inertia", "Milky Way", "mass", "magnitude", "outer planets", "nebula", "orbit", "shooting star", "rocket", "solar", "space exploration", "solstice", "star", "total eclipse", "umbra", "space", "vernal equinox", "sky", "satellite", "new moon", "penumbra", "solar wind", "light-year", "rings","partial eclipse", "observatory", "phase", "orbital inclination", "universe", "zodiac", "space station", "sun", "starlight", "telescope"];
+["space", "earth", "solarSystem", "jupiter","mars", "quartermoon", "septune", "moon", "gibbousmoon", "mercury", "pluto", "halfmoon", "saturn", "Venus", "crescentmoon", "uranus", "planet", "axialtilt", "waning", "waxing", "asteroidbelt", "asteroid", "black hole", "bigbangtheory", "astronaut", "comet", "binarystar", "astronomer", "astronomy", "ellipticalorbit", "density", "constellation", "deepspace", "cosmonaut", "cosmos", "dwarfplanet", "crater","day", "dwarfstar", "dust", "equinox", "innerplanets", "eclipse", "ecliptic", "inferiorplanets", "galaxy", "lunar", "fallingstar", "meteorite", "meteor", "meteorshower", "meteoroid", "lens", "gravity", "fullmoon", "inertia", "milkyway", "mass", "magnitude", "outerplanets", "nebula", "orbit", "shootingstar", "rocket", "solar", "spaceexploration", "solstice", "star", "totaleclipse", "umbra", "space", "vernalequinox", "sky", "satellite", "new moon", "penumbra", "solarwind", "lightyear", "rings","partialeclipse", "observatory", "phase", "orbital inclination", "universe", "zodiac", "spacestation", "sun", "starlight", "telescope"];
 
 var randomSpaceWord = "";
 var letterOfSpaceWord = [];
@@ -13,6 +13,7 @@ var remainingGuesses = 15;
 function gameEngine() {
 
     randomSpaceWord = spaceWord[Math.floor(Math.random() * spaceWord.length)];
+    console.log(randomSpaceWord);
 
     letterOfSpaceWord = randomSpaceWord.split("");
     console.log(letterOfSpaceWord);
@@ -20,100 +21,76 @@ function gameEngine() {
     blankSpace = letterOfSpaceWord.length;
     console.log(blankSpace);
 
-    for(var i = 0; i < blankSpace; i++){
+    for(var i = 0; i < blankSpace; i++) {
         blankCorrectSpace.push("_");
     }
     console.log(blankCorrectSpace);
 
-    document.getElementById("currentSpaceWorld").textContent = "  " + blankCorrectSpace.join(" ");
+    document.getElementById("currentSpaceWorld").innerHTML = "  " + blankCorrectSpace.join("  ");
+    
 }
-    
-var spaceSounds = document.getElementById("audio1");
-var spacemusic = document.getElementById("audio2");
-
-function audio() {
-    if (randomSpaceWord ===spaceWord
-        [0-20]){
-        audio1.pause();
-        audio2.play();
-        document.getElementById("bigbang").src = "assets/images/PIA01384_large.jpg";
-    }
-
-    else if (randomSpaceWord ===spaceWord 
-        [21-40]) {
-        audio1.play();
-        audio2.pause();
-        document.getElementById("bigbang").src = "assets/images/PIA10399_orig.jpg";
-    }
-
-    else if (randomSpaceWord ===spaceWord 
-        [41-60]) {
-        audio1.pause();
-        audio2.play();
-        document.getElementById("bigbang").src = "assets/images/PIA09178_orig.jpg";
-    }
-    else if (randomSpaceWord ===spaceWord 
-        [61-84]) {
-        audio1.play();
-        audio2.pause();
-        document.getElementById("bigbang").src = "assets/images/PIA03654_orig.jpg";
-    }
-    
-};
 
 function reset() {
-    guessesRemaining = 15;
+    remainingGuesses = 15;
     wrongGuess = [];
-    blanksAndCorrect = [];
-    Game()
+    blankCorrectSpace = [];
+    gameEngine ()
 }
 
 function letterMarching (letter) {
     var indLetter = false;
+    // console.log("indLetter: " + indLetter);
 
     for (var i = 0; i < blankSpace; i++) {
-        if (randomSpaceWord[i]== letter) {
+        if (randomSpaceWord[i] == letter) {
             indLetter = true;
         }
     }
 
     if (indLetter) {
-        for (var i=0; i < blankSpace; i++) {
-            if (randomSpaceWord[i]== letter) {
-                blankCorrectSpace[i] =letter;
+        for (var i = 0; i < blankSpace; i++) {
+            if (randomSpaceWord[i] == letter) {
+                blankCorrectSpace[i] = letter;
             }
         }
     }
-    else {
-        wrongGuess.push (letter);
-        remainingGuesses --;
-    }
 
+    else {
+        wrongGuess.push(letter);
+        remainingGuesses--;
+    }
+    document.getElementById("guessesLeft").innerHTML = remainingGuesses;
     console.log(blankCorrectSpace);
+    document.getElementById("currentSpaceWorld").innerHTML = "  " + blankCorrectSpace.join("  ")
+    
 }
+
 
 function blackhole () {
-    if (letterOfSpaceWord.toSting() == blankCorrectSpace.toString()) {
-        wins++
-        audio()
+    console.log("wins:" + win + "| guesses left:" + remainingGuesses)
+
+    if (letterOfSpaceWord.toString() == blankCorrectSpace.toString()) {
+        win++
         reset()
 
-        document.getElementById ("numberOfWins").textContent = " " + wins
+        document.getElementById ("numberOfWins").innerHTML = " " + win;
+
+    }else if (remainingGuesses === 0) {
+        reset ()
     }
 }
 
-document.getElementById("currentSpaceWorld").textContent + "  " + blankCorrectSpace.join (" ");
-gameEngine(spaceWord);
-document.getElementById("guessesLeft"). textContent = " " + remainingGuesses;
+    document.getElementById("currentSpaceWorld").innerHTML + "  " + blankCorrectSpace.join (" ");
 
 
 gameEngine ()
 
 document.onkeyup = function (event) {
-    var guesses = String.fromCharCode(event.keycode).toLowerCase ();
+    var guesses = String.fromCharCode(event.keyCode).toLowerCase();
     letterMarching(guesses);
     blackhole();
+    
     console.log(guesses);
 
-    document.getElementById("lettersGuessed").textContent = "  " + wrongGuess.join(" ");
+    document.getElementById("lettersGuessed").innerHTML = "  " + wrongGuess.join(" ");
 }
