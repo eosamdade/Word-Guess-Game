@@ -26,7 +26,7 @@ function gameEngine() {
     }
     console.log(blankCorrectSpace);
 
-    document.getElementById("currentSpaceWorld").innerHTML = "  " + blankCorrectSpace.join("  ");
+    document.getElementById("currentSpaceWorld").textContent = "  " + blankCorrectSpace.join("  ");
     
 }
 
@@ -59,9 +59,9 @@ function letterMarching (letter) {
         wrongGuess.push(letter);
         remainingGuesses--;
     }
-    document.getElementById("guessesLeft").innerHTML = remainingGuesses;
+    document.getElementById("guessesLeft").textContent = remainingGuesses;
     console.log(blankCorrectSpace);
-    document.getElementById("currentSpaceWorld").innerHTML = "  " + blankCorrectSpace.join("  ")
+    document.getElementById("currentSpaceWorld").textContent = "  " + blankCorrectSpace.join("  ")
     
 }
 
@@ -73,14 +73,14 @@ function blackhole () {
         win++
         reset()
 
-        document.getElementById ("numberOfWins").innerHTML = " " + win;
+        document.getElementById ("numberOfWins").textContent = " " + win;
 
     }else if (remainingGuesses === 0) {
         reset ()
     }
 }
 
-    document.getElementById("currentSpaceWorld").innerHTML + "  " + blankCorrectSpace.join (" ");
+    document.getElementById("currentSpaceWorld").textContent + "  " + blankCorrectSpace.join (" ");
 
 
 gameEngine ()
@@ -92,5 +92,5 @@ document.onkeyup = function (event) {
     
     console.log(guesses);
 
-    document.getElementById("lettersGuessed").innerHTML = "  " + wrongGuess.join(" ");
+    document.getElementById("lettersGuessed").textContent = "  " + wrongGuess.join(" ");
 }
